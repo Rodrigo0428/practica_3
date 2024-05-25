@@ -1,0 +1,70 @@
+
+@{
+    ViewData["Title"] = "Crear Usuario";
+}
+
+<h1>Crear un nuevo usuario</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="successMessage" class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<form asp-action="Create" method="post" class="user-creation-form">
+  <div class="form-group">
+    <label for="name">Nombres:</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese sus nombres completos">
+  </div>
+  <div class="form-group">
+    <label for="job">Trabajo:</label>
+    <input type="text" class="form-control" id="job" name="job" placeholder="Ingrese su profesión">
+  </div>
+  <br>
+  <br>
+  <button type="submit" class="btn btn-primary">Crear Usuario</button>
+</form>
+
+@section Scripts {
+    <script>
+        // Ocultar el mensaje de éxito después de 3 segundos
+        setTimeout(function() {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 1000);
+    </script>
+}
+<style>.user-creation-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}</style>

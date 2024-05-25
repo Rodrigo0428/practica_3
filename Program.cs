@@ -18,7 +18,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ListarUsuarios, ListarUsuarios>();
 builder.Services.AddScoped<ListarUnUsuario, ListarUnUsuario>();
-
+builder.Services.AddScoped<CrearUsuario, CrearUsuario>();
 
 var app = builder.Build();
 
