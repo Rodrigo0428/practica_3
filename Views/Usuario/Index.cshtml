@@ -1,0 +1,43 @@
+@model List<A.Integration.dto.Usuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<h2>Usuarios</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th style="background-color: blue; color: white;">Id</th>
+      <th style="background-color: blue; color: white;">Email</th>
+      <th style="background-color: blue; color: white;">First Name</th>
+      <th style="background-color: blue; color: white;">Last Name</th>
+      <th style="background-color: blue; color: white;">Avatar</th>
+      <th style="background-color: blue; color: white;">Perfil</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (Model != null && Model.Count > 0)
+    {
+      foreach (var user in Model)
+      {
+        <tr>
+          <td style="background-color: lightblue;">@user.Id</td>
+          <td style="background-color: lightblue;">@user.Email</td>
+          <td style="background-color: lightblue;">@user.Nombre</td>
+          <td style="background-color: lightblue;">@user.Apellido</td>
+          <td><img src="@user.Avatar" alt="Avatar" style="width:50px;height:50px;" /></td>
+          <td style="background-color: lightblue;"><a href="@Url.Action("Perfil", new { Id = user.Id })">Ir a Perfil</a></td>
+        </tr>
+      }
+    }
+    else
+    {
+      <tr>
+        <td colspan="5" class="text-center">No users found.</td>
+      </tr>
+    }
+  </tbody>
+  <a href="@Url.Action("Create", "riUsuao")" class="btn btn-primary">Crear usuario</a>
+</table>
+
