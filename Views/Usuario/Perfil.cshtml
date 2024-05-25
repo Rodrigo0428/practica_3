@@ -1,0 +1,33 @@
+@model A.Integration.dto.Usuario
+
+@{
+    ViewData["Title"] = "Perfil de Usuario";
+}
+
+<h1>Perfil de @Model.Nombre @Model.Apellido</h1>
+
+<div>
+    <h2>Información del Usuario</h2>
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.Id</dd>
+
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10">@Model.Email</dd>
+
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">@Model.Nombre</dd>
+
+        <dt class="col-sm-2">Apellido</dt>
+        <dd class="col-sm-10">@Model.Apellido</dd>
+
+        <dt class="col-sm-2">Avatar</dt>
+        <dd class="col-sm-10">
+            <img src="@Model.Avatar" alt="Avatar" style="width:100px;height:100px;" />
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a href="@Url.Action("Index", "Usuario")">Volver a la lista de usuarios</a>
+</div>
